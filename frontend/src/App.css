@@ -399,7 +399,7 @@ body {
   box-shadow: var(--shadow-medium);
 }
 
-/* Enhanced Hero Section */
+/* Enhanced Hero Section with Icons */
 .hero-section {
   padding: 8rem 0 6rem;
   position: relative;
@@ -500,7 +500,8 @@ body {
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 2rem;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   backdrop-filter: blur(10px);
   animation: pulse 2s ease-in-out infinite;
 }
@@ -526,10 +527,24 @@ body {
   display: flex;
   gap: 3rem;
   margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
 }
 
 .stat-item {
   text-align: center;
+  position: relative;
+}
+
+.stat-icon {
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .stat-number {
@@ -539,6 +554,7 @@ body {
   font-weight: 700;
   color: var(--accent-primary);
   line-height: 1;
+  margin-bottom: 0.5rem;
 }
 
 .stat-label {
@@ -627,9 +643,9 @@ body {
   font-size: 0.875rem;
 }
 
-/* Enhanced Services Section */
+/* Enhanced Services Section with Better Spacing */
 .services-section {
-  padding: 6rem 0;
+  padding: 8rem 0;
   background: var(--bg-secondary);
   color: var(--text-dark);
 }
@@ -649,11 +665,33 @@ body {
   color: var(--text-primary);
 }
 
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.section-title-icon {
+  color: var(--accent-primary);
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+}
+
+.service-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .service-card {
@@ -665,6 +703,7 @@ body {
   box-shadow: var(--shadow-light);
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 [data-theme="light"] .service-card {
@@ -711,6 +750,7 @@ body {
 
 .glow-effect:hover {
   box-shadow: var(--accent-glow);
+  transform: scale(1.05);
 }
 
 .service-title {
@@ -746,7 +786,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .service-feature {
@@ -767,14 +807,286 @@ body {
 
 .learn-more-btn {
   color: var(--accent-primary);
-  padding: 0;
+  padding: 0.75rem 1.5rem;
   font-weight: 600;
   transition: all 0.3s ease;
+  border: 1px solid var(--accent-primary);
+  border-radius: 0.5rem;
+  background: var(--accent-light);
 }
 
 .learn-more-btn:hover {
-  color: var(--accent-hover);
+  background: var(--accent-primary);
+  color: white;
   transform: translateX(4px);
+}
+
+/* Form Integration Styles */
+.service-form-embed {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  animation: slideDown 0.5s ease forwards;
+}
+
+.form-wrapper {
+  margin-top: 1rem;
+}
+
+.form-intro-card {
+  background: var(--accent-light);
+  border: 1px solid var(--accent-primary);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+}
+
+.form-intro-icon {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.form-intro {
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Additional Services */
+.additional-services-section {
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.additional-services-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+[data-theme="light"] .additional-services-title {
+  color: var(--text-primary);
+}
+
+.additional-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.additional-service-card {
+  background: white;
+  border: none;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+[data-theme="light"] .additional-service-card {
+  background: var(--bg-card);
+}
+
+.additional-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Technology Statistics with Icons */
+.tech-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 3rem 2rem;
+  background: var(--accent-light);
+  border-radius: 1rem;
+  margin-top: 3rem;
+  border: 1px solid var(--accent-primary);
+}
+
+.tech-stat-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tech-stat-icon {
+  color: var(--accent-primary);
+}
+
+.tech-stat-number {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.tech-stat-label {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Enhanced CTA Section */
+.cta-section {
+  padding: 8rem 0;
+  background: linear-gradient(135deg, var(--accent-primary), #0099CC);
+  color: var(--text-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.5;
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-icon-group {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.cta-icon {
+  color: var(--text-dark);
+  animation: float 3s ease-in-out infinite;
+}
+
+.cta-icon:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.cta-icon:nth-child(3) {
+  animation-delay: -2s;
+}
+
+.cta-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.cta-subtitle {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-section .btn-primary {
+  background: var(--text-dark);
+  color: var(--text-primary);
+}
+
+.cta-section .btn-primary:hover {
+  background: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+.cta-section .btn-secondary {
+  background: transparent;
+  color: var(--text-dark);
+  border-color: var(--text-dark);
+}
+
+.cta-section .btn-secondary:hover {
+  background: var(--text-dark);
+  color: var(--text-primary);
+}
+
+/* Enhanced Technology Categories */
+.tech-category-title-new {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tech-category-icon {
+  color: var(--accent-primary);
+}
+
+/* Enhanced Spacing and Layout */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* Consistent spacing across all sections */
+.home-contact-section,
+.testimonials-section,
+.technologies-section {
+  padding: 8rem 0;
+}
+
+.home-contact-section {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] .home-contact-section {
+  background: var(--bg-primary);
+}
+
+.home-contact-section .section-title,
+.home-contact-section .section-subtitle {
+  color: var(--text-dark);
+}
+
+[data-theme="light"] .home-contact-section .section-title,
+[data-theme="light"] .home-contact-section .section-subtitle {
+  color: var(--text-primary);
 }
 
 /* Enhanced Technologies Section - Compact Layout */

@@ -198,7 +198,7 @@ const OutsourcingForm = () => {
                   <SelectValue placeholder="Select budget" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="under-10k">< $10,000</SelectItem>
+                  <SelectItem value="under-10k">&lt; $10,000</SelectItem>
                   <SelectItem value="10k-50k">$10,000 - $50,000</SelectItem>
                   <SelectItem value="over-50k">$50,000+</SelectItem>
                 </SelectContent>

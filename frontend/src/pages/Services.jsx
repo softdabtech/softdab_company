@@ -7,6 +7,10 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../componen
 import { services } from '../data/mock';
 
 const Services = () => {
+  const [isVisible, setIsVisible] = useState({});
+  const [openSections, setOpenSections] = useState({});
+
+  // Enhanced service details with collapsible sections
   const serviceDetails = [
     {
       ...services[0],
@@ -19,68 +23,136 @@ const Services = () => {
         "Ongoing maintenance and support"
       ],
       process: [
-        "Requirements Analysis",
-        "Technical Architecture",
-        "Development & Testing",
-        "Deployment & Launch",
+        "Requirements Analysis & Planning",
+        "Technical Architecture Design",
+        "Agile Development & Testing",
+        "Deployment & Go-Live",
         "Maintenance & Support"
-      ]
+      ],
+      technologies: ["Python", "React", "Node.js", "PostgreSQL", "AWS"],
+      pricing: "Starting from $5,000",
+      timeline: "4-12 weeks"
     },
     {
       ...services[1],
       icon: Users,
       benefits: [
-        "Pre-vetted senior developers",
-        "Seamless integration with your team",
-        "Flexible team scaling as needed",
-        "Direct communication channels",
-        "Transparent progress reporting"
+        "Pre-vetted senior developers with 5+ years experience",
+        "Seamless integration with your existing workflow",
+        "Flexible team scaling as your needs grow",
+        "Direct communication channels and daily standups",
+        "Transparent progress reporting and time tracking"
       ],
       process: [
-        "Team Requirements",
-        "Developer Selection",
-        "Integration Setup",
-        "Project Kickoff",
-        "Ongoing Collaboration"
-      ]
+        "Team Requirements Analysis",
+        "Developer Selection & Vetting",
+        "Integration & Onboarding",
+        "Project Kickoff & Setup",
+        "Ongoing Collaboration & Management"
+      ],
+      technologies: ["Your Choice", "Full Stack", "Specialized Skills", "Remote First"],
+      pricing: "$2,500-$4,500/month per developer",
+      timeline: "1-2 weeks to start"
     },
     {
       ...services[2],
       icon: Rocket,
       benefits: [
-        "Rapid MVP development",
-        "Technical consulting and guidance",
-        "Proof of concept development",
-        "Growth scaling strategies",
-        "Market-ready solutions"
+        "Rapid MVP development in 4-8 weeks",
+        "Technical consulting and strategic guidance",
+        "Proof of concept and prototype development",
+        "Growth scaling strategies and architecture",
+        "Market-ready solutions with user feedback integration"
       ],
       process: [
-        "Idea Validation",
-        "MVP Planning",
-        "Rapid Development",
-        "User Testing",
-        "Market Launch"
-      ]
+        "Idea Validation & Market Research",
+        "MVP Planning & Feature Prioritization",
+        "Rapid Development & Iteration",
+        "User Testing & Feedback Integration",
+        "Market Launch & Growth Support"
+      ],
+      technologies: ["Modern Stack", "Cloud Native", "Mobile Ready", "Scalable"],
+      pricing: "$3,000-$15,000 for MVP",
+      timeline: "2-8 weeks"
     }
   ];
 
   const additionalServices = [
     {
       icon: Zap,
-      title: "API Development",
-      description: "Robust and scalable API solutions for seamless integrations"
+      title: "API Development & Integration",
+      description: "Robust and scalable API solutions for seamless third-party integrations and microservices architecture.",
+      features: ["RESTful & GraphQL APIs", "Third-party integrations", "Microservices architecture", "API documentation"]
     },
     {
       icon: Shield,
-      title: "Security Audits",
-      description: "Comprehensive security assessments and vulnerability testing"
+      title: "Security Audits & Testing",
+      description: "Comprehensive security assessments, vulnerability testing, and compliance consulting for your applications.",
+      features: ["Penetration testing", "Code security review", "GDPR compliance", "Security best practices"]
     },
     {
       icon: Globe,
-      title: "Cloud Migration",
-      description: "Smooth transition to cloud platforms with minimal downtime"
+      title: "Cloud Migration & DevOps",
+      description: "Smooth transition to cloud platforms with minimal downtime and optimized infrastructure management.",
+      features: ["AWS/Azure migration", "CI/CD pipelines", "Infrastructure as Code", "Performance optimization"]
     }
   ];
+
+  const caseStudies = [
+    {
+      title: "E-commerce Platform Transformation",
+      client: "European Retail Chain",
+      challenge: "Legacy system modernization",
+      solution: "Microservices migration to AWS",
+      results: ["300% performance improvement", "50% cost reduction", "99.9% uptime achieved"],
+      status: "Coming Soon"
+    },
+    {
+      title: "FinTech Mobile Application",
+      client: "US Financial Startup",
+      challenge: "Secure payment processing",
+      solution: "React Native + Node.js API",
+      results: ["100K+ users onboarded", "PCI DSS compliant", "4.8 app store rating"],
+      status: "Coming Soon"
+    },
+    {
+      title: "Healthcare Management System",
+      client: "Medical Practice Group",
+      challenge: "Patient data management",
+      solution: "HIPAA-compliant web platform",
+      results: ["40% admin time saved", "HIPAA compliant", "Real-time reporting"],
+      status: "Coming Soon"
+    }
+  ];
+
+  // Intersection Observer for animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(prev => ({
+              ...prev,
+              [entry.target.id]: true
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll('[data-animate]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const toggleSection = (sectionId) => {
+    setOpenSections(prev => ({
+      ...prev,
+      [sectionId]: !prev[sectionId]
+    }));
+  };
 
   return (
     <div className="services-page">

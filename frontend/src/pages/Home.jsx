@@ -4,11 +4,16 @@ import { ArrowRight, Code, Users, Rocket, CheckCircle, Star, Quote, ChevronLeft,
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../components/ui/collapsible';
+import OutsourcingForm from '../components/OutsourcingForm';
+import OutstaffingForm from '../components/OutstaffingForm';
+import HomeContactForm from '../components/HomeContactForm';
 import { companyInfo, services, technologies } from '../data/mock';
 
 const Home = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState({});
+  const [expandedService, setExpandedService] = useState(null);
 
   const testimonials = [
     {
@@ -68,6 +73,10 @@ const Home = () => {
 
   const prevTestimonial = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const toggleServiceForm = (serviceId) => {
+    setExpandedService(expandedService === serviceId ? null : serviceId);
   };
 
   return (
@@ -144,7 +153,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Enhanced Services Overview */}
+      {/* Enhanced Services Overview with Embedded Forms */}
       <section className="services-section" id="services" data-animate>
         <div className="section-container">
           <div className={`section-header ${isVisible.services ? 'animate-in' : ''}`}>
@@ -158,34 +167,96 @@ const Home = () => {
             {services.map((service, index) => {
               const IconComponent = service.icon === 'Code' ? Code : service.icon === 'Users' ? Users : Rocket;
               return (
-                <Card key={service.id} className="service-card interactive-card" style={{animationDelay: `${index * 0.2}s`}}>
-                  <CardHeader>
-                    <div className="service-icon glow-effect">
-                      <IconComponent size={32} />
+                <div key={service.id} className="service-container" style={{animationDelay: `${index * 0.2}s`}}>
+                  <Card className="service-card interactive-card">
+                    <CardHeader>
+                      <div className="service-icon glow-effect">
+                        <IconComponent size={32} />
+                      </div>
+                      <CardTitle className="service-title">{service.title}</CardTitle>
+                      <CardDescription className="service-subtitle">
+                        {service.subtitle}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="service-description">{service.description}</p>
+                      <ul className="service-features">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="service-feature">
+                            <CheckCircle size={16} className="text-accent" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="service-cta">
+                        <Button 
+                          variant="ghost" 
+                          className="learn-more-btn"
+                          onClick={() => toggleServiceForm(service.id)}
+                        >
+                          {expandedService === service.id ? 'Hide Form' : 'Request Quote'}
+                          <ArrowRight size={16} className="ml-2" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Embedded Service Forms */}
+                  {expandedService === service.id && (
+                    <div className="service-form-embed">
+                      {service.id === 1 && (
+                        <div className="form-wrapper">
+                          <p className="form-intro">Tell us about your project, and we'll provide a tailored solution.</p>
+                          <OutsourcingForm />
+                        </div>
+                      )}
+                      {service.id === 2 && (
+                        <div className="form-wrapper">
+                          <p className="form-intro">Let us know your requirements, and we'll assemble the perfect team for you.</p>
+                          <OutstaffingForm />
+                        </div>
+                      )}
+                      {service.id === 3 && (
+                        <div className="form-wrapper">
+                          <Card className="startup-support-card">
+                            <CardHeader>
+                              <CardTitle className="form-title">Startup Support Request</CardTitle>
+                              <p className="form-subtitle">
+                                Let's discuss your startup idea and how we can help bring it to life.
+                              </p>
+                            </CardHeader>
+                            <CardContent>
+                              <div className="startup-cta-content">
+                                <p className="startup-description">
+                                  Every successful startup begins with a great idea and the right technical partner. 
+                                  We specialize in turning innovative concepts into market-ready products.
+                                </p>
+                                <div className="startup-features">
+                                  <div className="startup-feature">
+                                    <CheckCircle size={16} className="text-accent" />
+                                    <span>Free initial consultation</span>
+                                  </div>
+                                  <div className="startup-feature">
+                                    <CheckCircle size={16} className="text-accent" />
+                                    <span>Technical feasibility assessment</span>
+                                  </div>
+                                  <div className="startup-feature">
+                                    <CheckCircle size={16} className="text-accent" />
+                                    <span>MVP development roadmap</span>
+                                  </div>
+                                </div>
+                                <Button className="btn-primary btn-glow w-full">
+                                  Schedule Free Consultation
+                                  <ArrowRight className="ml-2" size={18} />
+                                </Button>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      )}
                     </div>
-                    <CardTitle className="service-title">{service.title}</CardTitle>
-                    <CardDescription className="service-subtitle">
-                      {service.subtitle}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="service-description">{service.description}</p>
-                    <ul className="service-features">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="service-feature">
-                          <CheckCircle size={16} className="text-accent" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="service-cta">
-                      <Button variant="ghost" className="learn-more-btn">
-                        Learn More
-                        <ArrowRight size={16} className="ml-2" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
+                  )}
+                </div>
               );
             })}
           </div>
@@ -313,14 +384,30 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Home Contact Form Section */}
+      <section className="home-contact-section" id="home-contact" data-animate>
+        <div className="section-container">
+          <div className={`section-header ${isVisible['home-contact'] ? 'animate-in' : ''}`}>
+            <h2 className="section-title">Ready to Start Your Project?</h2>
+            <p className="section-subtitle">
+              Get in touch with us today and let's discuss how we can help you achieve your goals
+            </p>
+          </div>
+
+          <div className={`home-contact-container ${isVisible['home-contact'] ? 'animate-in' : ''}`}>
+            <HomeContactForm />
+          </div>
+        </div>
+      </section>
+
       {/* Enhanced CTA Section */}
       <section className="cta-section" id="cta" data-animate>
         <div className="section-container">
           <div className={`cta-content ${isVisible.cta ? 'animate-in' : ''}`}>
-            <h2 className="cta-title">Ready to Transform Your Business?</h2>
+            <h2 className="cta-title">Join 100+ Satisfied Clients</h2>
             <p className="cta-subtitle">
-              Let's discuss how we can help bring your vision to life with our expertise and dedication. 
-              Join the 100+ satisfied clients who trust SOFTDAB.
+              From startups to enterprise, we've helped businesses transform their ideas into successful digital products. 
+              Let's make your vision a reality.
             </p>
             <div className="cta-buttons">
               <Button className="btn-primary btn-glow">

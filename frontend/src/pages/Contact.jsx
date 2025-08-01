@@ -281,7 +281,7 @@ const Contact = () => {
                   <h3 className="response-title">Our Response Time</h3>
                   <div className="response-stats">
                     <div className="response-stat">
-                      <span className="stat-number">< 24hrs</span>
+                      <span className="stat-number">&lt; 24hrs</span>
                       <span className="stat-label">Average Response</span>
                     </div>
                     <div className="response-stat">

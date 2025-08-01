@@ -282,26 +282,43 @@ const Home = () => {
             </p>
           </div>
 
-          <div className={`technologies-container ${isVisible.technologies ? 'animate-in-stagger' : ''}`}>
+          <div className={`technologies-container-new ${isVisible.technologies ? 'animate-in-stagger' : ''}`}>
             {technologies.map((category, categoryIndex) => (
-              <div key={categoryIndex} className="tech-category" style={{animationDelay: `${categoryIndex * 0.3}s`}}>
-                <h3 className="tech-category-title">{category.category}</h3>
-                <div className="tech-items">
-                  {category.items.map((tech, techIndex) => (
-                    <div key={techIndex} className="tech-item tooltip-trigger" data-tooltip={tech.description}>
-                      <div className="tech-icon">
-                        <Code size={24} />
+              <Card key={categoryIndex} className="tech-category-card" style={{animationDelay: `${categoryIndex * 0.2}s`}}>
+                <CardHeader>
+                  <CardTitle className="tech-category-title-new">{category.category}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="tech-items-grid">
+                    {category.items.map((tech, techIndex) => (
+                      <div key={techIndex} className="tech-item-compact tooltip-trigger" data-tooltip={tech.description}>
+                        <div className="tech-icon-compact">
+                          <Code size={20} />
+                        </div>
+                        <span className="tech-name-compact">{tech.name}</span>
+                        <div className="tooltip">{tech.description}</div>
                       </div>
-                      <div className="tech-info">
-                        <h4 className="tech-name">{tech.name}</h4>
-                        <p className="tech-description">{tech.description}</p>
-                      </div>
-                      <div className="tooltip">{tech.description}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             ))}
+          </div>
+
+          {/* Technology Statistics */}
+          <div className={`tech-stats ${isVisible.technologies ? 'animate-in' : ''}`}>
+            <div className="tech-stat-item">
+              <span className="tech-stat-number">12+</span>
+              <span className="tech-stat-label">Technologies</span>
+            </div>
+            <div className="tech-stat-item">
+              <span className="tech-stat-number">3</span>
+              <span className="tech-stat-label">Core Stacks</span>
+            </div>
+            <div className="tech-stat-item">
+              <span className="tech-stat-number">100%</span>
+              <span className="tech-stat-label">Modern Tools</span>
+            </div>
           </div>
         </div>
       </section>

@@ -1,8 +1,9 @@
-import React from 'react';
-import { ArrowRight, CheckCircle, Code, Users, Rocket, Zap, Shield, Globe } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, CheckCircle, Code, Users, Rocket, Zap, Shield, Globe, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../components/ui/collapsible';
 import { services } from '../data/mock';
 
 const Services = () => {

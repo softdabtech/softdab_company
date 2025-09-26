@@ -29,6 +29,6 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           remote-user: softdab      # ← замени на реального пользователя
-          server-ip: 185.104.45.92  # ← замени на IP сервера adm.tools
+          server-ip: 3076774.softdab.web.hosting-test.net  # ← замени на IP сервера adm.tools
           remote-path: /var/www/softdab.tech/www   # ← путь где крутится сайт
           local-path: build/

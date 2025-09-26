@@ -180,7 +180,7 @@ const testimonials = [
 </Button>
 <Button variant="outline" className="btn-secondary btn-hover">
   <Phone size={18} className="mr-2" />
-  Book Free Consultation
+  Book a Free Consultation
 </Button>
             </div>
           </div>

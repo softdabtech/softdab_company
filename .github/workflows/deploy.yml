@@ -28,7 +28,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v5.0.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          remote-user: youruser      # ← замени на реального пользователя
-          server-ip: your.server.ip  # ← замени на IP сервера adm.tools
+          remote-user: softdab      # ← замени на реального пользователя
+          server-ip: 185.104.45.92  # ← замени на IP сервера adm.tools
           remote-path: /var/www/softdab.tech/www   # ← путь где крутится сайт
           local-path: build/

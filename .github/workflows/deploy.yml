@@ -1,4 +1,4 @@
-name: Deploy to Server
+name: Deploy to FTP
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  ftp-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,11 +26,11 @@ jobs:
         working-directory: ./frontend
         run: yarn build
 
-      - name: Deploy via SSH
-        uses: easingthemes/ssh-deploy@v5.0.3
+      - name: Deploy to FTP server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          remote-user: softdab
-          server-ip: 185.104.45.92
-          remote-path: /var/www/softdab.tech/www
-          local-path: frontend/build/
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./frontend/build
+          server-dir: /www/softdab.tech/www

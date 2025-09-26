@@ -12,41 +12,38 @@ export const services = [
   {
     id: 1,
     title: "Custom Software Development",
-    subtitle: "Outsourcing",
-    description: "We create scalable, secure, and efficient software tailored to your business goals.",
+    subtitle: "End-to-end solutions for your unique business needs",
+    description: "From concept to launch, we build robust, scalable, and secure software tailored to your specific requirements. Our expertise covers web, mobile, and cloud-native applications.",
     features: [
-      "Full-cycle development",
-      "Scalable architecture",
-      "Security-first approach",
-      "Modern technologies"
-    ],
-    icon: "Code"
+      "Full-cycle product engineering",
+      "Scalable architecture design",
+      "Modern tech stack implementation",
+      "Quality assurance & testing"
+    ]
   },
   {
     id: 2,
-    title: "Dedicated Teams",
-    subtitle: "Outstaffing",
-    description: "Hire top-tier developers to seamlessly integrate into your workflow.",
+    title: "Dedicated Development Teams",
+    subtitle: "Extend your in-house capabilities with top-tier talent",
+    description: "Seamlessly integrate our expert engineers into your existing team. We provide flexible, dedicated resources that align with your project goals and company culture.",
     features: [
-      "Pre-vetted developers",
-      "Seamless integration",
-      "Flexible team size",
-      "Direct communication"
-    ],
-    icon: "Users"
+      "Access to senior engineers",
+      "Flexible team scaling",
+      "Transparent communication",
+      "Cost-effective talent acquisition"
+    ]
   },
   {
     id: 3,
-    title: "Startup Support",
-    subtitle: "Innovation Partners",
-    description: "Empowering early-stage startups with innovative solutions and technical expertise.",
+    title: "Startup & MVP Development",
+    subtitle: "Bring your innovative ideas to market, fast",
+    description: "We partner with startups to build Minimum Viable Products (MVPs) quickly and efficiently, helping you validate concepts and secure early market traction. Focus on your vision, we handle the tech.",
     features: [
-      "MVP development",
-      "Technical consulting",
-      "Rapid prototyping",
-      "Growth scaling"
-    ],
-    icon: "Rocket"
+      "Rapid prototyping & MVP",
+      "Product strategy & roadmap",
+      "Scalability planning",
+      "Post-launch support"
+    ]
   }
 ];
 

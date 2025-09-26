@@ -15,26 +15,26 @@ const Home = () => {
   const [isVisible, setIsVisible] = useState({});
   const [expandedService, setExpandedService] = useState(null);
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "CTO, TechStart Inc.",
-      content: "SOFTDAB delivered our MVP in record time. Their dedicated team seamlessly integrated with our workflow.",
-      rating: 5
-    },
-    {
-      name: "Michael Chen",
-      role: "Founder, InnovateLab",
-      content: "Outstanding technical expertise and professional service. They understood our vision perfectly.",
-      rating: 5
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "VP Engineering, DataFlow",
-      content: "The quality of code and attention to detail exceeded our expectations. Highly recommended!",
-      rating: 5
-    }
-  ];
+const testimonials = [
+  {
+    name: "David Miller",
+    role: "VP of Engineering, FinTech Solutions",
+    content: "SoftDAB integrated seamlessly with our in-house team and accelerated our roadmap by several months. Their professionalism and technical skills are outstanding.",
+    rating: 5
+  },
+  {
+    name: "Anna Schmidt",
+    role: "Product Manager, HealthCare Next",
+    content: "Partnering with SoftDAB allowed us to launch our new digital product on time and within budget. The team provided clear communication and delivered above our expectations.",
+    rating: 5
+  },
+  {
+    name: "James Lee",
+    role: "Founder, GrowthStart",
+    content: "Their dedicated developers felt like part of our own company. The quality and reliability of the work gave us the confidence to scale quickly.",
+    rating: 5
+  }
+];
 
   // Service icons mapping
   const serviceIcons = {
@@ -45,25 +45,40 @@ const Home = () => {
 
   // Additional services for home page
   const additionalServices = [
-    {
-      icon: Zap,
-      title: "API Development & Integration",
-      description: "Robust and scalable API solutions for seamless third-party integrations.",
-      features: ["RESTful APIs", "GraphQL", "Third-party integrations", "Documentation"]
-    },
-    {
-      icon: Shield,
-      title: "Security & Compliance",
-      description: "Comprehensive security audits and compliance consulting for your applications.",
-      features: ["Security audits", "GDPR compliance", "Penetration testing", "Best practices"]
-    },
-    {
-      icon: Globe,
-      title: "Cloud & DevOps",
-      description: "Cloud migration and DevOps solutions for scalable infrastructure.",
-      features: ["AWS/Azure", "CI/CD pipelines", "Infrastructure as Code", "Monitoring"]
-    }
-  ];
+  {
+    icon: Zap,
+    title: "Digital Transformation",
+    description: "Modernize legacy systems and processes with cutting-edge digital solutions that increase efficiency and reduce costs.",
+    features: [
+      "Legacy system modernization",
+      "Business process automation",
+      "System integrations",
+      "Cloud migration"
+    ]
+  },
+  {
+    icon: Shield,
+    title: "Quality Assurance & Security",
+    description: "Ensure reliability and compliance through comprehensive QA, testing, and security audits at every stage of development.",
+    features: [
+      "Automated & manual testing",
+      "Performance testing",
+      "Compliance (GDPR, HIPAA)",
+      "Security audits & penetration tests"
+    ]
+  },
+  {
+    icon: Globe,
+    title: "Cloud & DevOps Services",
+    description: "Optimize infrastructure and delivery pipelines with DevOps practices and cloud-native technologies.",
+    features: [
+      "CI/CD implementation",
+      "AWS / Azure / GCP",
+      "Monitoring & logging",
+      "Infrastructure as Code"
+    ]
+  }
+];
 
   // Intersection Observer for animations
   useEffect(() => {
@@ -126,13 +141,13 @@ const Home = () => {
               <Award size={16} className="mr-2" />
               {companyInfo.experience} Years of Excellence
             </Badge>
-            <h1 className="hero-title">
-             Your Trusted Partner for <span className="gradient-text">Outsourcing & Team Extension</span>
-            </h1>
-          <p className="hero-subtitle">
-           SoftDAB empowers businesses to innovate and scale by providing dedicated engineering teams 
-             and end‑to‑end software solutions tailored to your unique goals.
-            </p>
+           <h1 className="hero-title">
+  Your Engineering Partner for <span className="gradient-text">Outsourcing & Team Extension</span>
+</h1>
+<p className="hero-subtitle">
+  We help companies scale faster, accelerate product launches, and strengthen teams with top-tier engineers. 
+  SoftDAB delivers tailored software solutions that turn your business vision into reality.
+</p>
             
             <div className="hero-stats">
               <div className="stat-item">
@@ -158,10 +173,15 @@ const Home = () => {
                 Get Started Today
                 <ArrowRight className="ml-2" size={18} />
               </Button>
-              <Button variant="outline" className="btn-secondary btn-hover">
-                <Phone size={18} className="mr-2" />
-                Schedule a Call
-              </Button>
+             <Button className="btn-primary btn-glow">
+  <Rocket size={18} className="mr-2" />
+  Start Your Project
+  <ArrowRight className="ml-2" size={18} />
+</Button>
+<Button variant="outline" className="btn-secondary btn-hover">
+  <Phone size={18} className="mr-2" />
+  Book a Free Consultation
+</Button>
             </div>
           </div>
 
@@ -191,9 +211,11 @@ const Home = () => {
         <div className="section-container">
           <div className={`section-header ${isVisible.services ? 'animate-in' : ''}`}>
             <h2 className="section-title">Our Core Services</h2>
-            <p className="section-subtitle">
-              Comprehensive software solutions tailored to your business needs
-            </p>
+           <h2 className="section-title">Outsourcing & Team Extension Services</h2>
+<p className="section-subtitle">
+  We provide flexible engagement models — from complete software outsourcing to dedicated team extension. 
+  Whether you need to deliver a product from scratch or scale your engineering capacity, SoftDAB adapts to your needs.
+</p>
           </div>
 
           <div className={`services-grid ${isVisible.services ? 'animate-in-stagger' : ''}`}>
@@ -349,13 +371,14 @@ const Home = () => {
       <section className="technologies-section" id="technologies" data-animate>
         <div className="section-container">
           <div className={`section-header ${isVisible.technologies ? 'animate-in' : ''}`}>
-            <h2 className="section-title">
-              <Code size={32} className="section-title-icon" />
-              Technologies We Master
-            </h2>
-            <p className="section-subtitle">
-              Cutting-edge tools and frameworks for modern software development
-            </p>
+          <h2 className="section-title">
+  <Code size={32} className="section-title-icon" />
+  Technology Expertise, Tailored to Your Needs
+</h2>
+<p className="section-subtitle">
+  We adapt to your preferred tools and frameworks while leveraging our expertise 
+  across modern technologies to deliver reliable, scalable solutions.
+</p>
           </div>
 
           <div className={`technologies-container-new ${isVisible.technologies ? 'animate-in-stagger' : ''}`}>
@@ -485,22 +508,23 @@ const Home = () => {
               <Target size={48} className="cta-icon" />
               <Heart size={48} className="cta-icon" />
             </div>
-            <h2 className="cta-title">Join 100+ Satisfied Clients</h2>
-            <p className="cta-subtitle">
-              From startups to enterprise, we've helped businesses transform their ideas into successful digital products. 
-              Let's make your vision a reality.
-            </p>
-            <div className="cta-buttons">
-              <Button className="btn-primary btn-glow">
-                <Rocket size={18} className="mr-2" />
-                Start Your Project
-                <ArrowRight className="ml-2" size={18} />
-              </Button>
-              <Button variant="outline" className="btn-secondary btn-hover">
-                <Phone size={18} className="mr-2" />
-                Book Free Consultation
-              </Button>
-            </div>
+            <h2 className="cta-title">Ready to Build Your Next Success Story?</h2>
+<p className="cta-subtitle">
+  From agile startups to established enterprises, SoftDAB empowers companies worldwide to innovate, scale, 
+  and deliver software that drives results. Let’s turn your vision into reality — together.
+</p>
+
+<div className="cta-buttons">
+  <Button className="btn-primary btn-glow">
+    <Rocket size={18} className="mr-2" />
+    Start Your Project
+    <ArrowRight className="ml-2" size={18} />
+  </Button>
+  <Button variant="outline" className="btn-secondary btn-hover">
+    <Phone size={18} className="mr-2" />
+    Book a Free Consultation
+  </Button>
+</div>
           </div>
         </div>
       </section>

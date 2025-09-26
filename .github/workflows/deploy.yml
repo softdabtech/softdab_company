@@ -34,3 +34,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./frontend/build/
           server-dir: /www/softdab.tech/www/
+          protocol: ftps
+          port: 21
+          state-name: .ftp-deploy-sync-state.json

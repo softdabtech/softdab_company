@@ -127,12 +127,11 @@ const Home = () => {
               {companyInfo.experience} Years of Excellence
             </Badge>
             <h1 className="hero-title">
-              Empowering Businesses with 
-              <span className="gradient-text"> Custom Software Solutions</span>
+             Your Trusted Partner for <span className="gradient-text">Outsourcing & Team Extension</span>
             </h1>
-            <p className="hero-subtitle">
-              Transform your ideas into powerful, scalable applications with our expert development teams. 
-              We deliver innovation that drives real business results.
+          <p className="hero-subtitle">
+           SoftDAB empowers businesses to innovate and scale by providing dedicated engineering teams 
+             and end‑to‑end software solutions tailored to your unique goals.
             </p>
             
             <div className="hero-stats">

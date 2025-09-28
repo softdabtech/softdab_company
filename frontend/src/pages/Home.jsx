@@ -162,7 +162,7 @@ const testimonials = [
               </div>
               <div className="stat-item">
                 <Star size={20} className="stat-icon" />
-                <span className="stat-number">100%</span>
+                <span className="stat-number">98%</span>
                 <span className="stat-label">Client Satisfaction</span>
               </div>
             </div>

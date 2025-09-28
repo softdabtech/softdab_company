@@ -249,7 +249,7 @@ const Contact = () => {
                     </div>
                     <div className="method-content">
                       <h3 className="method-title">Email us</h3>
-                      <p className="method-text">hello@softdab.com</p>
+                      <p className="method-text">info@softdab.com</p>
                       <span className="method-note">We'll respond within 24 hours</span>
                     </div>
                   </div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Unsubscribe | SoftDAB</title>
+    <meta name="robots" content="noindex" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f9fb;
+        text-align: center;
+        padding-top: 100px;
+      }
+      .box {
+        background: white;
+        max-width: 420px;
+        margin: auto;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      }
+      button {
+        background: #0077ff;
+        border: none;
+        padding: 12px 30px;
+        color: white;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #005fcc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Sorry to see you go</h1>
+      <p>Click below to confirm your unsubscribe from SoftDAB emails.</p>
+      <form method="POST" action="https://formspree.io/f/your_form_id">
+        <input type="hidden" name="unsubscribe" value="true" />
+        <button type="submit">Unsubscribe</button>
+      </form>
+    </div>
+  </body>
+</html>
